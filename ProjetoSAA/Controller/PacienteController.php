@@ -53,7 +53,8 @@ if (isset($_GET['operation'])) {
 
                     $pacienteDAO = new PacienteDAO();
                     $pacienteDAO->insertPaciente($paciente);
-                    header ("location:../View/Paciente/indexPaciente.php");
+                    echo("<script type='text/javascript'> alert('O paciente foi cadastrado com sucesso!'); location.href='../View/Paciente/indexPaciente.php';</script>");
+                    //header ("location:../View/Paciente/indexPaciente.php");
                 }
             } else {
                 echo "Informe todos os campos obrigatórios!";
@@ -66,7 +67,8 @@ if (isset($_GET['operation'])) {
             $array = $pacienteDAO->searchPaciente();
 
             $_SESSION['paciente'] = serialize($array);
-            header("location:../View/Paciente/indexPaciente.php");
+            echo("<script type='text/javascript'> alert('O paciente foi excluído com sucesso!'); location.href='../View/Paciente/indexPaciente.php';</script>");
+            //header("location:../View/Paciente/indexPaciente.php");
         break;
 
         case 'excluir':
@@ -126,8 +128,8 @@ if (isset($_GET['operation'])) {
                     
                     $pacienteDAO = new PacienteDAO();
                     $pacienteDAO->updatePaciente($paciente);
-
-                    header ("location:../View/Paciente/indexPaciente.php");
+                    echo("<script type='text/javascript'> alert('O paciente foi alterado com sucesso!'); location.href='../View/Paciente/indexPaciente.php';</script>");
+                    //eader ("location:../View/Paciente/indexPaciente.php");
                 } else {
                     echo "Informe todos os campos!";
                 }

@@ -29,10 +29,15 @@
                                x-moz-errormessage="O campo não pode ser nulo e deve conter apenas números!" 
                                pattern="[0-9]+$" required="required" maxlength="10"/>
                     </div>
+                    <script>
+                    function myFunction() {
+                        alert("A operação será cancelada!");
+                    }
+                    </script>
                     <button type="submit" class="btn btn-success">
                         Salvar
                     </button>
-                    <a type="reset" class="btn btn-danger" href="indexConvenio.php">Cancelar</a>
+                    <a type="reset" class="btn btn-danger" onclick="myFunction()" href="indexConvenio.php">Cancelar</a>
                 </div>
             </form>
         </div>

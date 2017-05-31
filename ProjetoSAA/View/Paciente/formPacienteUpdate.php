@@ -274,11 +274,16 @@ $resultConvenio = $obj->buscarConveniosUpdate();
                                value="<?php print_r ($result[0]['acomodacao']) ?>" maxlength="20"
                                x-moz-errormessage="O acomodação deve ter no máximo 20 caracteres!"/>           
                     </div>
-
+                    <script>
+                    function myFunction() {
+                        alert("A operação será cancelada!");
+                    }
+                    </script>
+                    
                     <button type="submit" class="btn btn-success">
                         Salvar
                     </button>
-                    <a type="reset" class="btn btn-danger" href="indexPaciente.php">Cancelar</a>
+                    <a type="reset" onclick="myFunction()" class="btn btn-danger" href="indexPaciente.php">Cancelar</a>
                 </div>
             </form>
         </div>

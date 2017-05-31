@@ -12,7 +12,8 @@ class ConvenioDAO {
     }
     
     public function insertConvenio ($convenio){
-        try {
+        
+        try {            
             $status = $this->connection->prepare("INSERT INTO convenio (idConvenio, nome, numeroRegistro) VALUES (null, ?, ?)");
             $status->bindValue(1, $convenio->nome);
             $status->bindValue(2, $convenio->numeroRegistro);
@@ -57,7 +58,7 @@ class ConvenioDAO {
     
     public function searchConvenio(){
         try {
-            $status = $this->connection->query("Select * From Convenio");
+            $status = $this->connection->query("Select idConvenio, nome, numeroRegistro From Convenio");
             
             $array = array();
             $array = $status->fetchAll(PDO::FETCH_CLASS, 'ConvenioModel');

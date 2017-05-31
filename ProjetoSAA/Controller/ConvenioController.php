@@ -11,18 +11,18 @@ if (isset($_GET['operation'])) {
                (!empty($_POST['txtnumeroRegistro']))) {
 
                 $erros = array();
-
+                
                 if (count($erros) == 0) {
-                    $convenio = new ConvenioModel();
 
+                    $convenio = new ConvenioModel();
+                    
                     $convenio->nome = $_POST['txtNome'];
                     $convenio->numeroRegistro = $_POST['txtnumeroRegistro'];
 
                     $convenioDAO = new ConvenioDAO();
                     $convenioDAO->insertConvenio($convenio);
-                    header ("location:../View/Convenio/indexConvenio.php");
-                } else {
-                    echo "Informe todos os campos!";
+                    echo("<script type='text/javascript'> alert('O convênio foi cadastrado com sucesso!'); location.href='../View/Convenio/indexConvenio.php';</script>");
+                    //header ("location:../View/Convenio/indexConvenio.php");
                 }
             }
         break;
@@ -33,7 +33,8 @@ if (isset($_GET['operation'])) {
                 $array = $convenioDAO->searchConvenio();
                 
                 $_SESSION['convenio'] = serialize($array);
-                header("location:../View/Convenio/indexConvenio.php");
+                echo("<script type='text/javascript'> alert('O convênio foi excluído com sucesso!'); location.href='../View/Convenio/indexConvenio.php';</script>");
+                //header("location:../View/Convenio/indexConvenio.php");
         break;
         
         case 'excluir':
@@ -61,7 +62,8 @@ if (isset($_GET['operation'])) {
                     
                     $convenioDAO = new ConvenioDAO();
                     $convenioDAO->updateConvenio($convenio);
-                    header ("location:../View/Convenio/indexConvenio.php");
+                    echo("<script type='text/javascript'> alert('O convênio foi alterado com sucesso!'); location.href='../View/Convenio/indexConvenio.php';</script>");
+                    //header ("location:../View/Convenio/indexConvenio.php");
                 } else {
                     echo "Informe todos os campos!";
                 }
